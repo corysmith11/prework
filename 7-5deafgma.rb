@@ -1,6 +1,6 @@
 puts 'Ask Deaf Grandma Anything'
 question = gets.chomp
-while question != '3.BYE'
+while question != 'BYE'
         if question != question.upcase
         puts 'HUH?! SPEAK UP, SONNY!'
         question = gets.chomp
