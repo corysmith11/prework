@@ -43,3 +43,9 @@ git add .
 git commit -m "Precourse work"
 git push origin master
 git pull
+git add .
+git pull
+git commit -m "Precourse work"
+git push origin master
+git pull ...
+git pull
