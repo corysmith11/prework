@@ -1,7 +1,9 @@
 puts 'Welcome to the Blackjack table.' 
 puts 'Who do I have the pleasure of dealing today?'
 player = gets.chomp
+puts ''
 puts 'Hi ' + player + ', here is your first set of cards..'
+puts ""
 
 suits =  ['Hearts','Diamonds','Clubs','Spades']
 cards =   ['2','3','4','5','6','7','8','9','10','Jack','queen','king','ace']
@@ -42,9 +44,12 @@ player_total = sum_total(player_cards)
 dealer_total = sum_total(dealer_cards)
 
 
-puts "You have a #{player_cards[0]} and a #{player_cards[1]} for a total of: #{player_total}"
+puts "You have a #{player_cards[0]} and a #{player_cards[1]}"
+puts "For a total of: #{player_total}"
 puts ""
-puts "The Dealer has a #{dealer_cards[0]} and #{dealer_cards[1]}, for a total of #{dealer_total}"
+puts "The Dealer has a #{dealer_cards[0]} and #{dealer_cards[1]}"
+puts "For a total of #{dealer_total}"
+puts ""
 
 if dealer_total > 21
   puts 'Dealer busted ' + player + '! You WIN!!'
@@ -56,16 +61,14 @@ elsif dealer_total == 21
  if player_total == 21
     puts "Boom!! You got BlackJack and have won the game! Well played."
     exit
-  elsif player_total > 21
-    puts 'You busted ' + player + '! The dealer wins.'
-    exit
-  end
+end
 
 while player_total < 21
     puts "Would you like to hit or stay?"
       decision = gets.chomp
   if decision == "hit"
     puts "You selected to hit.. Good luck!!"
+    puts ""
       new_card = deck.pop
       player_cards << new_card
       player_total = sum_total(player_cards)
@@ -73,12 +76,17 @@ while player_total < 21
      puts "The card you were dealt is #{new_card}, Your new hand is now #{player_total}."
     elsif decision == "stay"
     puts 'You selected to stay ' + player + '.'
+    puts ""
       break
     else decision != "hit" || decision != "stay"
     puts "You did not make a valid choice, Please say hit or stay"
       next
     end
   end
+  while player_total > 21
+    puts 'You busted ' + player + '! The dealer wins.'
+    exit
+end
 while dealer_total < 17
   new_card = deck.pop
   dealer_cards << new_card
