@@ -7,7 +7,7 @@ puts ""
 
 suits =  ['Hearts','Diamonds','Clubs','Spades']
 cards =   ['2','3','4','5','6','7','8','9','10','Jack','queen','king','ace']
-
+decks = 11
 def sum_total(cards)
         valuearray = cards.map{|e| e[0]} # looks at the value of the second in array pair.
         total                  = 0
@@ -29,6 +29,9 @@ end
 
 #shuffle
 deck = cards.product(suits)
+(decks - 1).times do
+  deck = deck + cards.product(suits)
+end
 deck.shuffle!
 
 player_cards = []
